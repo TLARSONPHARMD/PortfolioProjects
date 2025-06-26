@@ -1,18 +1,19 @@
--- Question 1: Find the Number of Stolen Vehicles Each Year
+--Objective 1:
+-- Task 1: Find the Number of Stolen Vehicles Each Year
 SELECT
 	YEAR(date_stolen) as Year,
     COUNT(vehicle_id) as num_vehicles
 FROM stolen_vehicles
 GROUP BY YEAR(date_stolen);
 
--- Question 2: Find the Number of Stolen Vehicles Each Month
+-- Task 2: Find the Number of Stolen Vehicles Each Month
 SELECT
 YEAR(date_stolen), month(date_stolen), count(vehicle_id)
 FROM stolen_vehicles
 GROUP BY YEAR(date_stolen), month(date_stolen)
 ORDER BY YEAR(date_stolen), month(date_stolen);
 
--- Question 3: Find the Number of Stolen Vehicles Each week
+-- Task 3: Find the Number of Stolen Vehicles Each week
 SELECT
 dayofweek(date_stolen) as day_of_week,
 count(vehicle_id)
@@ -20,7 +21,7 @@ FROM stolen_vehicles
 GROUP BY dayofweek(date_stolen)
 ORDER BY dayofweek(date_stolen);
 
--- Question 4: Replace the numerical day of week with the full name of the day of week
+-- Task 4: Replace the numerical day of week with the full name of the day of week
 SELECT dayofweek(date_stolen) as dow,
 CASE 
 	WHEN dayofweek(date_stolen) = 1 THEN 'Sunday'
@@ -47,7 +48,7 @@ ELSE 'Check logic'
 END
 ORDER BY dayofweek(date_stolen);
 
--- Question 5: Create a bar chart that shows the number of vehicles stolen on each day of the week
+-- Task 5: Create a bar chart that shows the number of vehicles stolen on each day of the week
 -- In Excel
 
 /*Objective 2
